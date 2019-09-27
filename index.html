@@ -62,6 +62,7 @@
 				bg.src = "img/weixin.jpg";
 				bg.onload = function () {
 					context.drawImage(bg, 0, 0, canvas.width, canvas.height);
+					alert(1);
 					var watermark = new Image();
 					watermark.src = watermarkImgList[currentIndex];
 					watermark.onload = function () {
@@ -75,10 +76,12 @@
 				}
 			}
 			var imageLeft = function() {
+				alert("左");
 				currentIndex = (currentIndex - 1 + 4) % 4;
 				addWatermark();
 			}
 			var imageRight = function() {
+				alert("右");
 				currentIndex = (currentIndex + 1) % 4;
 				addWatermark();
 			}
@@ -90,22 +93,22 @@
 				$(".dis-content").show();
 			}
 			var appId = "wx21008732b223f021";
-			var test1 = "http://develop2.21tb.com/face/client/work/initMyWork?workId=57bf4a10607e48b9b03ece77aaa1fe47&mina_session_id=minaSessionId.017674469bb04cb9a9aebbfb05b76bb2&mina_type=MINA_FACE&version=new"
-			$.ajax({
-				type: 'get',
-				url: test1,
-				data: {
+			// var test1 = "http://develop2.21tb.com/face/client/work/initMyWork?workId=57bf4a10607e48b9b03ece77aaa1fe47&mina_session_id=minaSessionId.017674469bb04cb9a9aebbfb05b76bb2&mina_type=MINA_FACE&version=new"
+			// $.ajax({
+			// 	type: 'get',
+			// 	url: test1,
+			// 	data: {
 					
-				},
-				crossDomain:true,
-				dataType: 'jsonp',
-				success: function(data) {
-					console.log(data);
-				},
-				error:function(data) {
-					console.log(data);
-				}
-			})
+			// 	},
+			// 	crossDomain:true,
+			// 	dataType: 'jsonp',
+			// 	success: function(data) {
+			// 		console.log(data);
+			// 	},
+			// 	error:function(data) {
+			// 		console.log(data);
+			// 	}
+			// })
 		</script>
 	</body>
 </html>
