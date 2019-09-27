@@ -1,0 +1,26 @@
+* {margin:0;padding:0}
+		html{font-size: 75px; color: #DCDCDC;height:100%;}
+		body{width: 10rem;height:100%!important;font-size:24px;position: absolute;height: auto;left: 50%;margin-left: -5rem;}
+		.content{
+			position: relative;
+			height:100%;
+		}
+		.bgs{
+			width: 10rem;
+			height: 100%;
+		}
+		.display {width: 10rem;height: 100%;background: #000000;opacity: 0.6;z-index: 2;position: absolute;}
+		.in-content {position: absolute;top:2.70rem;bottom: 2.40rem;left:1.49rem;}
+		.flex-content {height: 100%;display: flex; flex-direction:column; justify-content:space-around;align-items:center;}
+		.icon_top {height: 2.34rem;}
+		.middle {display: flex; align-items:center;justify-content:space-between!important;height: 4.37rem;width: 7.21rem;}
+		.btn_left {height: 0.73rem;}
+		.btn_right{height: 0.73rem;}
+		.canvas {position: absolute;left:-5.24rem;height: 17.48rem;width: 17.48rem;transform: scale(0.25);}
+		.btn_save{height: 1.36rem;width: 4.61rem;}
+		.icon_bottom {height: 1.26rem;width: 3.34rem;display: block;}
+		.dis-content {position: absolute;height: 100%;width: 100%;display: flex;align-items: center;justify-content: center;z-index: 2;}
+		.dis-bg {display: flex;flex-direction:column; justify-content:space-around;align-items:center;height: 8.79rem;width: 6.67rem;background: #FFFFFF;}
+		.dis-pic {width: 5.77rem;height: 5.79rem;}
+		.line {width: 5.77rem;height: 1px;background: #D8D8D8;margin-top: .5rem;}
+		.mark {font-family: PingFangSC-Regular;font-size: 0.4rem;color: #4A0600;letter-spacing: 0.1rem;text-align: center;line-height: 1rem;}

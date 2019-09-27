@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<meta http-equiv="content-security-policy">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="./js/flexible.js"></script>
+		<script src="./js/flexible_css.js"></script>
+		<title>时代光华</title>
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<div class="content">
+			<div id = "display" class="display" style="display: none;"></div>
+			<div id="dis-content" class="dis-content" style="display: none;">
+				<div class="dis-bg">
+					<img id="dis-pic" class="dis-pic" />
+					<div class="line"></div>
+					<div class="mark">长按保存图片</div>
+				</div>
+			</div>
+			<img class="bgs" src="img/bg@3x.png" />
+			<div class="in-content">
+				<div class="flex-content">
+					<img class= "icon_top" src= "img/logo_top@3x.png"/>
+					<div class="middle">
+						<img onclick="imageLeft()" class="btn_left" src="img/btn_left@3x.png"/>
+						<div class="canvas">
+							<canvas id="canvas" style="display:block;margin:0 auto;border: #F2A728 1px solid;border-radius: 12px;">
+								您的浏览器尚不支持canvas
+							</canvas>
+							<img id="wx_pic" src="img/weixin.jpg" style="display: none;"/>
+							<img id="watermark" src="img/watermark_1@3x.png" style="display: none;"/>
+							<img id="logo" src="img/logo@3x.png" style="display: none;"/>
+						</div>
+						<img onclick="imageRight()" class="btn_right" src="img/btn_right@3x.png" />
+					</div>
+					<img onclick="saveCanvasToImage()" class="btn_save" src="img/btn_save@3x.png" />
+					<img class="icon_bottom" src="img/logo_bottom@3x.png" />
+				</div>
+			</div>
+		</div>
+		<script src="./js/jquery-1.9.1.min.js"></script>
+		<script src="./js/mui.min.js"></script>
+		<script>
+			mui.init();
+			var testUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0e81c3bee622d60&redirect_uri=http%3A%2F%2Fnba.bluewebgame.com%2Foauth_response.php&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+			var currentIndex = 0;
+			var screenWidth = window.screen.width;
+			var rateNum = screenWidth / 750 * 4;
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+			canvas.width = rateNum * 328;
+			canvas.height = rateNum * 328;
+			var bg = document.getElementById("wx_pic");
+			var logo =document.getElementById("logo");
+			var watermarkImgList = ["img/watermark_1@3x.png","img/watermark_2@3x.png","img/watermark_3@3x.png","img/watermark_4@3x.png"];
+			addWatermark();
+			function addWatermark() {
+				context.clearRect(0,0,canvas.width,canvas.height); 
+				bg.src = "img/weixin.jpg";
+				bg.onload = function () {
+					context.drawImage(bg, 0, 0, canvas.width, canvas.height);
+					var watermark = new Image();
+					watermark.src = watermarkImgList[currentIndex];
+					watermark.onload = function () {
+						if (currentIndex === 0) {
+							context.drawImage(watermark, 0, rateNum * 262, canvas.width, rateNum * 66);	
+						}else{
+							context.drawImage(watermark, 0, rateNum * 203, canvas.width, rateNum * 126);
+						}
+						context.drawImage(logo, rateNum * 27.5, rateNum * 268, rateNum * 190, rateNum * 55);
+					}
+				}
+			}
+			var imageLeft = function() {
+				currentIndex = (currentIndex - 1 + 4) % 4;
+				addWatermark();
+			}
+			var imageRight = function() {
+				currentIndex = (currentIndex + 1) % 4;
+				addWatermark();
+			}
+			var saveCanvasToImage = function() {
+				var result = canvas.toDataURL();
+				var pic =document.getElementById("dis-pic");
+				pic.src = result;
+				$(".display").show();
+				$(".dis-content").show();
+			}
+			var appId = "wx21008732b223f021";
+			var test1 = "http://develop2.21tb.com/face/client/work/initMyWork?workId=57bf4a10607e48b9b03ece77aaa1fe47&mina_session_id=minaSessionId.017674469bb04cb9a9aebbfb05b76bb2&mina_type=MINA_FACE&version=new"
+			$.ajax({
+				type: 'get',
+				url: test1,
+				data: {
+					
+				},
+				crossDomain:true,
+				dataType: 'jsonp',
+				success: function(data) {
+					console.log(data);
+				},
+				error:function(data) {
+					console.log(data);
+				}
+			})
+		</script>
+	</body>
+</html>
