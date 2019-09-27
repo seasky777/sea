@@ -58,13 +58,10 @@
 			var watermarkImgList = ["img/watermark_1@3x.png","img/watermark_2@3x.png","img/watermark_3@3x.png","img/watermark_4@3x.png"];
 			addWatermark();
 			function addWatermark() {
-				alert(2);
 				context.clearRect(0,0,canvas.width,canvas.height); 
-				alert(3);
 				var bg = new Image();
 				bg.src = "img/weixin.jpg";
 				bg.onload = function () {
-					alert(1);
 					context.drawImage(bg, 0, 0, canvas.width, canvas.height);
 					var watermark = new Image();
 					watermark.src = watermarkImgList[currentIndex];
@@ -79,13 +76,10 @@
 				}
 			}
 			var imageLeft = function() {
-				alert("左");
 				currentIndex = (currentIndex - 1 + 4) % 4;
-				alert(4);
 				addWatermark();
 			}
 			var imageRight = function() {
-				alert("右");
 				currentIndex = (currentIndex + 1) % 4;
 				addWatermark();
 			}
