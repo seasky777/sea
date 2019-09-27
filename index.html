@@ -58,7 +58,9 @@
 			var watermarkImgList = ["img/watermark_1@3x.png","img/watermark_2@3x.png","img/watermark_3@3x.png","img/watermark_4@3x.png"];
 			addWatermark();
 			function addWatermark() {
+				alert(2);
 				context.clearRect(0,0,canvas.width,canvas.height); 
+				alert(3);
 				bg.src = "img/weixin.jpg";
 				bg.onload = function () {
 					context.drawImage(bg, 0, 0, canvas.width, canvas.height);
@@ -78,6 +80,7 @@
 			var imageLeft = function() {
 				alert("左");
 				currentIndex = (currentIndex - 1 + 4) % 4;
+				alert(4);
 				addWatermark();
 			}
 			var imageRight = function() {
