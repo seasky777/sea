@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="css/index.css" />
 	</head>
 	<body>
+		<div class="out">
 		<div class="content">
 			<div id = "display" class="display" style="display: none;"></div>
 			<div id="dis-content" class="dis-content" style="display: none;">
@@ -40,6 +41,7 @@
 					<img class="icon_bottom" src="img/logo_bottom@3x.png" />
 				</div>
 			</div>
+		</div>
 		</div>
 		<script src="./js/jquery-1.9.1.min.js"></script>
 		<script src="./js/mui.min.js"></script>
@@ -90,23 +92,27 @@
 				$(".display").show();
 				$(".dis-content").show();
 			}
+			function getCode() {
+				var appId = "wx21008732b223f021";
+				var urlStr = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx21008732b223f021&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect"
+			}
 			var appId = "wx21008732b223f021";
-			// var test1 = "http://develop2.21tb.com/face/client/work/initMyWork?workId=57bf4a10607e48b9b03ece77aaa1fe47&mina_session_id=minaSessionId.017674469bb04cb9a9aebbfb05b76bb2&mina_type=MINA_FACE&version=new"
-			// $.ajax({
-			// 	type: 'get',
-			// 	url: test1,
-			// 	data: {
+			var test1 = "http://develop2.21tb.com/face/client/work/initMyWork?workId=57bf4a10607e48b9b03ece77aaa1fe47&mina_session_id=minaSessionId.017674469bb04cb9a9aebbfb05b76bb2&mina_type=MINA_FACE&version=new"
+			$.ajax({
+				type: 'get',
+				url: test1,
+				data: {
 					
-			// 	},
-			// 	crossDomain:true,
-			// 	dataType: 'jsonp',
-			// 	success: function(data) {
-			// 		console.log(data);
-			// 	},
-			// 	error:function(data) {
-			// 		console.log(data);
-			// 	}
-			// })
+				},
+				crossDomain:true,
+				dataType: 'jsonp',
+				success: function(data) {
+					console.log(data);
+				},
+				error:function(data) {
+					console.log(data);
+				}
+			})
 		</script>
 	</body>
 </html>
