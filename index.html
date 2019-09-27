@@ -64,8 +64,8 @@
 				var bg = new Image();
 				bg.src = "img/weixin.jpg";
 				bg.onload = function () {
-					context.drawImage(bg, 0, 0, canvas.width, canvas.height);
 					alert(1);
+					context.drawImage(bg, 0, 0, canvas.width, canvas.height);
 					var watermark = new Image();
 					watermark.src = watermarkImgList[currentIndex];
 					watermark.onload = function () {
