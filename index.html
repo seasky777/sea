@@ -61,6 +61,7 @@
 				alert(2);
 				context.clearRect(0,0,canvas.width,canvas.height); 
 				alert(3);
+				var bg = new Image();
 				bg.src = "img/weixin.jpg";
 				bg.onload = function () {
 					context.drawImage(bg, 0, 0, canvas.width, canvas.height);
